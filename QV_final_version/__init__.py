@@ -34,7 +34,7 @@ class Constants(BaseConstants):
     Q15_text = "Inner-country flights should generally be forbidden"
     Q16_text = "Increase petrol prices in Germany by 16ct (like proposed by green candidate)"
     Q17_text = "To reduce dependency on coal: move partially back to nuclear energy production"
-    Q18_text = "In order to protect the rights of transsexual young people, at least one unisex toilet should be built at every secondary school."
+    Q18_text = "In order to protect the rights of transsexual young people, at least one unisex toilet should be built at every secondary school"
 
     Erfahrung_text_english = "Did you already know the voting mechanism of 'Quadratic Voting' before this experiment?"
 
@@ -55,7 +55,7 @@ class Constants(BaseConstants):
     Q15_text_german = "Innerstaatliche Flüge sollen generell verboten werden"
     Q16_text_german = "Benzinpreise in Deutschland sollten um 16ct erhöht werden (wie von der grünen Kanzlerkandidatin vorgeschlagen)"
     Q17_text_german = "Um die Abhängigkeit von Kohle reduzieren: Teilweise Rückkehr zur Kernenergieerzeugung/Atomkraft"
-    Q18_text_german = "Um die Rechte von transsexuellen Jugendlichen zu schützen sollte an jeder weiterführenden Schule mindestens eine Unisex-Toilette gebaut werden."
+    Q18_text_german = "Um die Rechte von transsexuellen Jugendlichen zu schützen sollte an jeder weiterführenden Schule mindestens eine Unisex-Toilette gebaut werden"
 
     Erfahrung_text_german = "Haben Sie vor diesem Experiment den Wahlmechanismus 'Quadratic Voting' bereits gekannt?"
 
