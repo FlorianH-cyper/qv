@@ -1,0 +1,103 @@
+{{ block title }}
+     Majority Voting
+{{ endblock }}
+{{ block content }}
+<p>
+    Stellen Sie sich vor, Sie leben in einer Demokratie, in der Sie an Referenden zu verschiedenen Themen teilnehmen können.
+</p>
+<p>
+    Bitte wählen Sie aus, ob Sie für (yes), neutral, oder gegen (no) die jeweiligen Politikvorschläge sind.
+</p>
+
+<style>
+table, th, td {
+  border: 0.3px solid black;
+}
+th, td {
+  text-align: center;
+}
+</style>
+
+    <table class="table-condensed"
+
+            style="width:1000px; margin-top:20px" >
+        <tr>
+            <th width="500px">Politikvorschlag</th>
+            <th>MV Vote</th>
+
+        </tr>
+        <tr>
+            <td> {{Constants.Q1_text_german}}</td>
+            <td>{{ formfield player.Q1_MV }}</td>
+        </tr>
+        <tr>
+            <td> {{ Constants.Q2_text_german }}</td>
+            <td> {{ formfield player.Q2_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q3_text_german }}</td>
+            <td> {{ formfield player.Q3_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q4_text_german }}</td>
+            <td> {{ formfield player.Q4_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q5_text_german }}</td>
+            <td> {{ formfield player.Q5_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q6_text_german }}</td>
+            <td> {{ formfield player.Q6_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q7_text_german }}</td>
+            <td> {{ formfield player.Q7_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q8_text_german }}</td>
+            <td> {{ formfield player.Q8_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q9_text_german }}</td>
+            <td> {{ formfield player.Q9_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q10_text_german }}</td>
+            <td> {{ formfield player.Q10_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q11_text_german }}</td>
+            <td> {{ formfield player.Q11_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q12_text_german }}</td>
+            <td> {{ formfield player.Q12_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q13_text_german }}</td>
+            <td> {{ formfield player.Q13_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q14_text_german }}</td>
+            <td> {{ formfield player.Q14_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q15_text_german }}</td>
+            <td> {{ formfield player.Q15_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q16_text_german }}</td>
+            <td> {{ formfield player.Q16_MV}}</td>
+        </tr>
+                <tr>
+            <td> {{ Constants.Q17_text_german }}</td>
+            <td> {{ formfield player.Q17_MV}}</td>
+        </tr>
+    </table>
+
+<p>
+    Klicken Sie auf "next" um zur nächsten Seite zu gelangen.
+</p>
+{{ next_button }}
+{{ endblock }}

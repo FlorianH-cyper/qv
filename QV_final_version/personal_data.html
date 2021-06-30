@@ -1,0 +1,17 @@
+{{ block title }}
+    Almost finished!
+{{ endblock }}
+{{ block content }}
+<p>
+    just a little information about yourself:
+</p>
+{{ formfield player.gender }}
+{{ formfield player.age }}
+{{ Constants.Erfahrung_text_english }}
+{{ formfield player.Erfahrung }}
+
+    Which voting mechanism did you like more?
+{{ formfield player.Welche_besser }}
+{{ next_button }}
+
+{{ endblock }}

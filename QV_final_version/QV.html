@@ -1,0 +1,959 @@
+{{ block title }}
+    Quadratic Voting
+{{ endblock }}
+{{ block content }}
+
+<p>
+    You have a total of <b>{{ Constants.endowment }} credits </b>to spend on the issues below.
+</p>
+
+<p>
+    Steps to follow:
+</p>
+<div style="border: 5px solid yellow">
+<p>
+    1. Enter the number of votes you want to cast for/against the specific policy proposal (0 to {{ Constants.max_number_votes_on_one_issue}}).
+</p>
+<p>
+    <b>2. Click each the respective "vote" button</b> to submit the votes and see the costs in credits.
+</p>
+<p>
+    3. Repeat these steps for the next questions until you have reached the end.
+</p>
+</div>
+<p>
+    As you can see in the table below, the votes that you submit will be counted for/against the proposal, depending on what you chose during the MV vote.
+</p>
+<p>
+    Video Explanation:
+</p>
+
+<iframe width="620" height="415"
+src="https://www.youtube.com/embed/9Zq_K6ZGPyc">
+</iframe>
+
+<table style="border: 5px solid green">
+    <td>You currently have </td> <td>  </td> <td id="credits_left_display"> </td> <td> credits left!</td>
+</table>
+<style>
+th, td {
+  text-align: center;
+}
+</style>
+<table class="table" id="principal_buttons">
+    <tr><th>policy-proposal</th><th>you said</th><th>choose nr. of votes</th><th>nr. of votes cast</th><th>credits spend</th></tr>
+
+    {{ if player.Q1_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q1_text}}
+        </td>
+        <td>
+            {{ player.Q1_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q1_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q1()" id="btn-Q1"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q1_display"> </td>
+        <td id="Q1_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q1_text}}
+        </td>
+        <td>
+            {{ player.Q1_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q1_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q1()" id="btn-Q1"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q1_display"> </td>
+        <td id="Q1_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q2_MV != "neutral"}}
+    <tr>
+        <td>
+            {{Constants.Q2_text}}
+        </td>
+        <td>
+            {{ player.Q2_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q2_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q2()" id="btn-Q2"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q2_display"> </td>
+        <td id="Q2_credits_display">
+        </td>
+    </tr>
+    {{else}}
+       <tr hidden>
+        <td>
+            {{Constants.Q2_text}}
+        </td>
+        <td>
+            {{ player.Q2_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q2_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q2()" id="btn-Q2"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q2_display"> </td>
+        <td id="Q2_credits_display">
+        </td>
+    </tr>
+    {{ endif }}
+
+    {{ if player.Q3_MV != "neutral"}}
+    <tr>
+        <td>
+            {{Constants.Q3_text}}
+        </td>
+        <td>
+            {{ player.Q3_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q3_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q3()" id="btn-Q3"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q3_display"> </td>
+        <td id="Q3_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+        <td>
+            {{Constants.Q3_text}}
+        </td>
+        <td>
+            {{ player.Q3_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q3_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q3()" id="btn-Q3"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q3_display"> </td>
+        <td id="Q3_credits_display">
+        </td>
+    </tr>
+    {{ endif }}
+
+
+    {{ if player.Q4_MV != "neutral"}}
+    <tr>
+        <td>
+            {{Constants.Q4_text}}
+        </td>
+        <td>
+            {{ player.Q4_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q4_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q4()" id="btn-Q4"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q4_display"> </td>
+        <td id="Q4_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+        <td>
+            {{Constants.Q4_text}}
+        </td>
+        <td>
+            {{ player.Q4_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q4_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q4()" id="btn-Q4"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q4_display"> </td>
+        <td id="Q4_credits_display">
+        </td>
+    </tr>
+    {{ endif }}
+
+    {{ if player.Q5_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q5_text}}
+        </td>
+        <td>
+            {{ player.Q5_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q5_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q5()" id="btn-Q5"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q5_display"> </td>
+        <td id="Q5_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q5_text}}
+        </td>
+        <td>
+            {{ player.Q5_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q5_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q5()" id="btn-Q5"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q5_display"> </td>
+        <td id="Q5_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+{{ if player.Q6_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q6_text}}
+        </td>
+        <td>
+            {{ player.Q6_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q6_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q6()" id="btn-Q6"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q6_display"> </td>
+        <td id="Q6_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q6_text}}
+        </td>
+        <td>
+            {{ player.Q6_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q6_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q6()" id="btn-Q6"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q6_display"> </td>
+        <td id="Q6_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q7_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q7_text}}
+        </td>
+        <td>
+            {{ player.Q7_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q7_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q7()" id="btn-Q7"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q7_display"> </td>
+        <td id="Q7_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q7_text}}
+        </td>
+        <td>
+            {{ player.Q7_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q7_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q7()" id="btn-Q7"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q7_display"> </td>
+        <td id="Q7_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q8_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q8_text}}
+        </td>
+        <td>
+            {{ player.Q8_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q8_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q8()" id="btn-Q8"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q8_display"> </td>
+        <td id="Q8_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q8_text}}
+        </td>
+        <td>
+            {{ player.Q8_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q8_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q8()" id="btn-Q8"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q8_display"> </td>
+        <td id="Q8_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q9_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q9_text}}
+        </td>
+        <td>
+            {{ player.Q9_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q9_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q9()" id="btn-Q9"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q9_display"> </td>
+        <td id="Q9_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q9_text}}
+        </td>
+        <td>
+            {{ player.Q9_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q9_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q9()" id="btn-Q9"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q9_display"> </td>
+        <td id="Q9_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q10_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q10_text}}
+        </td>
+        <td>
+            {{ player.Q10_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q10_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q10()" id="btn-Q10"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q10_display"> </td>
+        <td id="Q10_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q10_text}}
+        </td>
+        <td>
+            {{ player.Q10_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q10_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q10()" id="btn-Q10"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q10_display"> </td>
+        <td id="Q10_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q11_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q11_text}}
+        </td>
+        <td>
+            {{ player.Q11_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q11_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q11()" id="btn-Q11"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q11_display"> </td>
+        <td id="Q11_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q11_text}}
+        </td>
+        <td>
+            {{ player.Q11_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q11_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q11()" id="btn-Q11"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q11_display"> </td>
+        <td id="Q11_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q12_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q12_text}}
+        </td>
+        <td>
+            {{ player.Q12_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q12_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q12()" id="btn-Q12"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q12_display"> </td>
+        <td id="Q12_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q12_text}}
+        </td>
+        <td>
+            {{ player.Q12_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q12_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q12()" id="btn-Q12"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q12_display"> </td>
+        <td id="Q12_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q13_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q13_text}}
+        </td>
+        <td>
+            {{ player.Q13_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q13_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q13()" id="btn-Q13"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q13_display"> </td>
+        <td id="Q13_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q13_text}}
+        </td>
+        <td>
+            {{ player.Q13_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q13_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q13()" id="btn-Q13"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q13_display"> </td>
+        <td id="Q13_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q14_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q14_text}}
+        </td>
+        <td>
+            {{ player.Q14_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q14_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q14()" id="btn-Q14"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q14_display"> </td>
+        <td id="Q14_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q14_text}}
+        </td>
+        <td>
+            {{ player.Q14_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q14_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q14()" id="btn-Q14"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q14_display"> </td>
+        <td id="Q14_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q15_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q15_text}}
+        </td>
+        <td>
+            {{ player.Q15_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q15_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q15()" id="btn-Q15"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q15_display"> </td>
+        <td id="Q15_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q15_text}}
+        </td>
+        <td>
+            {{ player.Q15_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q15_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q15()" id="btn-Q15"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q15_display"> </td>
+        <td id="Q15_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+    {{ if player.Q16_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q16_text}}
+        </td>
+        <td>
+            {{ player.Q16_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q16_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q16()" id="btn-Q16"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q16_display"> </td>
+        <td id="Q16_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q16_text}}
+        </td>
+        <td>
+            {{ player.Q16_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q16_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q16()" id="btn-Q16"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q16_display"> </td>
+        <td id="Q16_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+{{ if player.Q17_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q17_text}}
+        </td>
+        <td>
+            {{ player.Q17_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q17_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q17()" id="btn-Q17"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q17_display"> </td>
+        <td id="Q17_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q17_text}}
+        </td>
+        <td>
+            {{ player.Q17_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q17_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q17()" id="btn-Q17"
+        >
+        vote
+        </button>
+        </td>
+       <td id="Q17_display"> </td>
+        <td id="Q17_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
+
+
+
+</table>
+
+<div id="to_hide_rest">{{ formfield player.rest_to_hide }}</div>
+
+<script>
+
+    function liveRecv(data){
+    console.log(data)
+    let {Q1_back, Q1_credits, Q2_back, Q2_credits, Q3_back, Q3_credits, Q4_back, Q4_credits, Q5_back, Q5_credits, Q6_back, Q6_credits, Q7_back, Q7_credits, Q8_back, Q8_credits, Q9_back, Q9_credits, Q10_back, Q10_credits, Q11_back, Q11_credits, Q12_back, Q12_credits, Q13_back, Q13_credits, Q14_back, Q14_credits, Q15_back, Q15_credits, Q16_back, Q16_credits, Q17_back, Q17_credits, rest} = data;
+
+    document.getElementById("Q1_display").innerText = Q1_back;
+    document.getElementById("Q1_credits_display").innerText = Q1_credits + " §"
+
+    document.getElementById("Q2_display").innerText = Q2_back;
+    document.getElementById("Q2_credits_display").innerText = Q2_credits + " §"
+    document.getElementById("Q3_display").innerText = Q3_back;
+    document.getElementById("Q3_credits_display").innerText = Q3_credits + " §"
+    document.getElementById("Q4_display").innerText = Q4_back;
+    document.getElementById("Q4_credits_display").innerText = Q4_credits + " §"
+
+    document.getElementById("Q5_display").innerText = Q5_back;
+    document.getElementById("Q5_credits_display").innerText = Q5_credits + " §"
+
+        document.getElementById("Q6_display").innerText = Q6_back;
+    document.getElementById("Q6_credits_display").innerText = Q6_credits + " §"
+
+        document.getElementById("Q7_display").innerText = Q7_back;
+    document.getElementById("Q7_credits_display").innerText = Q7_credits + " §"
+
+        document.getElementById("Q8_display").innerText = Q8_back;
+    document.getElementById("Q8_credits_display").innerText = Q8_credits + " §"
+
+        document.getElementById("Q9_display").innerText = Q9_back;
+    document.getElementById("Q9_credits_display").innerText = Q9_credits + " §"
+
+        document.getElementById("Q10_display").innerText = Q10_back;
+    document.getElementById("Q10_credits_display").innerText = Q10_credits + " §"
+
+        document.getElementById("Q11_display").innerText = Q11_back;
+    document.getElementById("Q11_credits_display").innerText = Q11_credits + " §"
+
+        document.getElementById("Q12_display").innerText = Q12_back;
+    document.getElementById("Q12_credits_display").innerText = Q12_credits + " §"
+
+        document.getElementById("Q13_display").innerText = Q13_back;
+    document.getElementById("Q13_credits_display").innerText = Q13_credits + " §"
+
+        document.getElementById("Q14_display").innerText = Q14_back;
+    document.getElementById("Q14_credits_display").innerText = Q14_credits + " §"
+
+        document.getElementById("Q15_display").innerText = Q15_back;
+    document.getElementById("Q15_credits_display").innerText = Q15_credits + " §"
+
+        document.getElementById("Q16_display").innerText = Q16_back;
+    document.getElementById("Q16_credits_display").innerText = Q16_credits + " §"
+
+        document.getElementById("Q17_display").innerText = Q17_back;
+    document.getElementById("Q17_credits_display").innerText = Q17_credits + " §"
+
+    document.getElementById("credits_left_display").innerText = rest
+
+    document.getElementById("credits_left_display_2").innerText = rest
+
+    }
+
+
+    function sende_Q1(){
+    liveSend({"Q1_anserver": document.getElementById("Q1_input").value})
+    }
+
+    function sende_Q2(){
+    liveSend({"Q2_anserver": document.getElementById("Q2_input").value})
+    }
+
+
+    function sende_Q3(){
+    liveSend({"Q3_anserver": document.getElementById("Q3_input").value})
+    }
+
+
+    function sende_Q4(){
+    liveSend({"Q4_anserver": document.getElementById("Q4_input").value})
+    }
+
+    function sende_Q5(){
+    liveSend({"Q5_anserver": document.getElementById("Q5_input").value})
+    }
+
+    function sende_Q6(){
+    liveSend({"Q6_anserver": document.getElementById("Q6_input").value})
+    }
+
+    function sende_Q7(){
+    liveSend({"Q7_anserver": document.getElementById("Q7_input").value})
+    }
+
+    function sende_Q8(){
+    liveSend({"Q8_anserver": document.getElementById("Q8_input").value})
+    }
+
+    function sende_Q9(){
+    liveSend({"Q9_anserver": document.getElementById("Q9_input").value})
+    }
+
+    function sende_Q10(){
+    liveSend({"Q10_anserver": document.getElementById("Q10_input").value})
+    }
+
+    function sende_Q11(){
+    liveSend({"Q11_anserver": document.getElementById("Q11_input").value})
+    }
+
+    function sende_Q12(){
+    liveSend({"Q12_anserver": document.getElementById("Q12_input").value})
+    }
+
+    function sende_Q13(){
+    liveSend({"Q13_anserver": document.getElementById("Q13_input").value})
+    }
+
+        function sende_Q14(){
+    liveSend({"Q14_anserver": document.getElementById("Q14_input").value})
+    }
+
+    function sende_Q15(){
+    liveSend({"Q15_anserver": document.getElementById("Q15_input").value})
+    }
+
+        function sende_Q16(){
+    liveSend({"Q16_anserver": document.getElementById("Q16_input").value})
+    }
+
+    function sende_Q17(){
+    liveSend({"Q17_anserver": document.getElementById("Q17_input").value})
+    }
+
+
+
+
+document.getElementById("to_hide_rest").style.display = "none";
+
+</script>
+
+<table style="border: 5px solid green">
+    <td>You currently have </td> <td>  </td> <td id="credits_left_display_2"> </td> <td> credits left!</td>
+</table>
+
+<p>
+    Please try to spend the majority of your credits before you click on the next button. They will be useless after this page.
+</p>
+
+
+
+{{ next_button }}
+
+{{ endblock }}

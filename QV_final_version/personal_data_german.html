@@ -1,0 +1,18 @@
+{{ block title }}
+    Fast fertig!
+{{ endblock }}
+{{ block content }}
+<p>
+    Zum Schluss ein wenig Information über Ihre Person:
+</p>
+{{ formfield player.gender }}
+{{ formfield player.age }}
+
+{{ Constants.Erfahrung_text_german }}
+{{ formfield player.Erfahrung }}
+
+    Welcher Wahlmechanismus hat ihnen besser gefallen?
+{{ formfield player.Welche_besser }}
+{{ next_button }}
+
+{{ endblock }}
