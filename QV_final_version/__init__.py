@@ -34,6 +34,7 @@ class Constants(BaseConstants):
     Q15_text = "Inner-country flights should generally be forbidden"
     Q16_text = "Increase petrol prices in Germany by 16ct (like proposed by green candidate)"
     Q17_text = "To reduce dependency on coal: move partially back to nuclear energy production"
+    Q18_text = "In order to protect the rights of transsexual young people, at least one unisex toilet should be built at every secondary school."
 
     Erfahrung_text_english = "Did you already know the voting mechanism of 'Quadratic Voting' before this experiment?"
 
@@ -54,6 +55,7 @@ class Constants(BaseConstants):
     Q15_text_german = "Innerstaatliche Flüge sollen generell verboten werden"
     Q16_text_german = "Benzinpreise in Deutschland sollten um 16ct erhöht werden (wie von der grünen Kanzlerkandidatin vorgeschlagen)"
     Q17_text_german = "Um die Abhängigkeit von Kohle reduzieren: Teilweise Rückkehr zur Kernenergieerzeugung/Atomkraft"
+    Q18_text_german = "Um die Rechte von transsexuellen Jugendlichen zu schützen sollte an jeder weiterführenden Schule mindestens eine Unisex-Toilette gebaut werden."
 
     Erfahrung_text_german = "Haben Sie vor diesem Experiment den Wahlmechanismus 'Quadratic Voting' bereits gekannt?"
 
@@ -149,6 +151,12 @@ class Player(BasePlayer):
     Q17_QV = models.IntegerField(initial=0, min=0, max=10)
     Q17_QV_costs = models.IntegerField(initial=0, min=0, max=100)
 
+    #18
+    Q18_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
+    Q18_QV = models.IntegerField(initial=0, min=0, max=10)
+    Q18_QV_costs = models.IntegerField(initial=0, min=0, max=100)
+
+
 #functions
 
 def live_method(player: Player, data):
@@ -206,9 +214,12 @@ def live_method(player: Player, data):
             if "Q17_anserver" in data:
                 player.Q17_QV = int(data["Q17_anserver"])
                 player.Q17_QV_costs = player.Q17_QV ** 2
+            if "Q18_anserver" in data:
+                player.Q18_QV = int(data["Q18_anserver"])
+                player.Q18_QV_costs = player.Q18_QV ** 2
 
-            player.rest = Constants.endowment - player.Q1_QV_costs - player.Q2_QV_costs - player.Q3_QV_costs - player.Q4_QV_costs - player.Q5_QV_costs - player.Q6_QV_costs - player.Q7_QV_costs - player.Q8_QV_costs - player.Q9_QV_costs - player.Q10_QV_costs - player.Q11_QV_costs - player.Q12_QV_costs - player.Q13_QV_costs - player.Q14_QV_costs - player.Q15_QV_costs - player.Q16_QV_costs - player.Q17_QV_costs
-            player.rest_to_hide = Constants.endowment - player.Q1_QV_costs - player.Q2_QV_costs - player.Q3_QV_costs - player.Q4_QV_costs - player.Q5_QV_costs - player.Q6_QV_costs - player.Q7_QV_costs - player.Q8_QV_costs - player.Q9_QV_costs - player.Q10_QV_costs - player.Q11_QV_costs - player.Q12_QV_costs - player.Q13_QV_costs - player.Q14_QV_costs - player.Q15_QV_costs - player.Q16_QV_costs - player.Q17_QV_costs
+            player.rest = Constants.endowment - player.Q1_QV_costs - player.Q2_QV_costs - player.Q3_QV_costs - player.Q4_QV_costs - player.Q5_QV_costs - player.Q6_QV_costs - player.Q7_QV_costs - player.Q8_QV_costs - player.Q9_QV_costs - player.Q10_QV_costs - player.Q11_QV_costs - player.Q12_QV_costs - player.Q13_QV_costs - player.Q14_QV_costs - player.Q15_QV_costs - player.Q16_QV_costs - player.Q17_QV_costs - player.Q18_QV_costs
+            player.rest_to_hide = Constants.endowment - player.Q1_QV_costs - player.Q2_QV_costs - player.Q3_QV_costs - player.Q4_QV_costs - player.Q5_QV_costs - player.Q6_QV_costs - player.Q7_QV_costs - player.Q8_QV_costs - player.Q9_QV_costs - player.Q10_QV_costs - player.Q11_QV_costs - player.Q12_QV_costs - player.Q13_QV_costs - player.Q14_QV_costs - player.Q15_QV_costs - player.Q16_QV_costs - player.Q17_QV_costs - player.Q18_QV_costs
 
 
 
@@ -252,6 +263,8 @@ def live_method(player: Player, data):
             Q16_credits=player.Q16_QV_costs,
             Q17_back=player.Q17_QV,
             Q17_credits=player.Q17_QV_costs,
+            Q18_back=player.Q18_QV,
+            Q18_credits=player.Q18_QV_costs,
 
 
             rest=player.rest
@@ -284,14 +297,14 @@ class Introduction_german(Page):
 
 class MV(Page):
     form_model = "player"
-    form_fields = ["Q1_MV", "Q2_MV","Q3_MV", "Q4_MV", "Q5_MV", "Q6_MV", "Q7_MV", "Q8_MV", "Q9_MV", "Q10_MV", "Q11_MV", "Q12_MV", "Q13_MV", "Q14_MV", "Q15_MV", "Q16_MV", "Q17_MV"]
+    form_fields = ["Q1_MV", "Q2_MV","Q3_MV", "Q4_MV", "Q5_MV", "Q6_MV", "Q7_MV", "Q8_MV", "Q9_MV", "Q10_MV", "Q11_MV", "Q12_MV", "Q13_MV", "Q14_MV", "Q15_MV", "Q16_MV", "Q17_MV", "Q18_MV"]
     @staticmethod
     def is_displayed(player):
         return player.language == "english"
 
 class MV_german(Page):
     form_model = "player"
-    form_fields = ["Q1_MV", "Q2_MV","Q3_MV", "Q4_MV", "Q5_MV", "Q6_MV", "Q7_MV", "Q8_MV", "Q9_MV", "Q10_MV", "Q11_MV", "Q12_MV", "Q13_MV", "Q14_MV", "Q15_MV", "Q16_MV", "Q17_MV"]
+    form_fields = ["Q1_MV", "Q2_MV","Q3_MV", "Q4_MV", "Q5_MV", "Q6_MV", "Q7_MV", "Q8_MV", "Q9_MV", "Q10_MV", "Q11_MV", "Q12_MV", "Q13_MV", "Q14_MV", "Q15_MV", "Q16_MV", "Q17_MV", "Q18_MV"]
     @staticmethod
     def is_displayed(player):
         return player.language == "deutsch"

@@ -798,6 +798,50 @@ th, td {
     </tr>
 
     {{endif}}
+    {{ if player.Q18_MV != "neutral"}}
+    <tr>
+
+        <td>
+            {{Constants.Q18_text_german}}
+        </td>
+        <td>
+            {{ player.Q18_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q18_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q18()" id="btn-Q18"
+        >
+        wählen
+        </button>
+        </td>
+       <td id="Q18_display"> </td>
+        <td id="Q18_credits_display">
+        </td>
+    </tr>
+    {{else}}
+        <tr hidden>
+
+        <td>
+            {{Constants.Q18_text_german}}
+        </td>
+        <td>
+            {{ player.Q18_MV }}
+        </td>
+        <td>
+            <input type="number" id="Q18_input" min="0" max="10">
+            <button
+        type="button" onclick="sende_Q18()" id="btn-Q18"
+        >
+        wählen
+        </button>
+        </td>
+       <td id="Q18_display"> </td>
+        <td id="Q18_credits_display">
+        </td>
+    </tr>
+
+    {{endif}}
 
 
 
@@ -809,7 +853,7 @@ th, td {
 
     function liveRecv(data){
     console.log(data)
-    let {Q1_back, Q1_credits, Q2_back, Q2_credits, Q3_back, Q3_credits, Q4_back, Q4_credits, Q5_back, Q5_credits, Q6_back, Q6_credits, Q7_back, Q7_credits, Q8_back, Q8_credits, Q9_back, Q9_credits, Q10_back, Q10_credits, Q11_back, Q11_credits, Q12_back, Q12_credits, Q13_back, Q13_credits, Q14_back, Q14_credits, Q15_back, Q15_credits, Q16_back, Q16_credits, Q17_back, Q17_credits, rest} = data;
+    let {Q1_back, Q1_credits, Q2_back, Q2_credits, Q3_back, Q3_credits, Q4_back, Q4_credits, Q5_back, Q5_credits, Q6_back, Q6_credits, Q7_back, Q7_credits, Q8_back, Q8_credits, Q9_back, Q9_credits, Q10_back, Q10_credits, Q11_back, Q11_credits, Q12_back, Q12_credits, Q13_back, Q13_credits, Q14_back, Q14_credits, Q15_back, Q15_credits, Q16_back, Q16_credits, Q17_back, Q17_credits, Q18_credits, Q18_back,  rest} = data;
 
     document.getElementById("Q1_display").innerText = Q1_back;
     document.getElementById("Q1_credits_display").innerText = Q1_credits + " §"
@@ -859,6 +903,9 @@ th, td {
 
         document.getElementById("Q17_display").innerText = Q17_back;
     document.getElementById("Q17_credits_display").innerText = Q17_credits + " §"
+
+        document.getElementById("Q18_display").innerText = Q18_back;
+    document.getElementById("Q18_credits_display").innerText = Q18_credits + " §"
 
     document.getElementById("credits_left_display").innerText = rest
 
@@ -935,6 +982,10 @@ th, td {
 
     function sende_Q17(){
     liveSend({"Q17_anserver": document.getElementById("Q17_input").value})
+    }
+
+    function sende_Q18(){
+    liveSend({"Q18_anserver": document.getElementById("Q18_input").value})
     }
 
 
