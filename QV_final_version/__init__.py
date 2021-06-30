@@ -79,73 +79,73 @@ class Player(BasePlayer):
     nr_of_errors = models.IntegerField(initial=0)
 
     #1
-    Q1_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral",  widget=widgets.RadioSelectHorizontal)
+    Q1_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q1_QV = models.IntegerField(initial=0, min=0, max=10)
     Q1_QV_costs = models.IntegerField(initial=0, min=0, max=100)
 
     #2
-    Q2_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral",  widget=widgets.RadioSelectHorizontal)
+    Q2_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q2_QV = models.IntegerField(initial=0, min=0, max=10)
     Q2_QV_costs = models.IntegerField(initial=0, min=0, max=100)
 
     #3
-    Q3_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral",  widget=widgets.RadioSelectHorizontal)
+    Q3_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q3_QV = models.IntegerField(initial=0, min=0, max=10)
     Q3_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #4
-    Q4_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral",  widget=widgets.RadioSelectHorizontal)
+    Q4_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q4_QV = models.IntegerField(initial=0, min=0, max=10)
     Q4_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #5
-    Q5_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral",  widget=widgets.RadioSelectHorizontal)
+    Q5_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q5_QV = models.IntegerField(initial=0, min=0, max=10)
     Q5_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #6
-    Q6_MV = models.StringField(label="", choices=["Yes", "neutral", "no"],  initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q6_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q6_QV = models.IntegerField(initial=0, min=0, max=10)
     Q6_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #7
-    Q7_MV = models.StringField(label="", choices=["Yes", "neutral", "no"],  initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q7_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q7_QV = models.IntegerField(initial=0, min=0, max=10)
     Q7_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #8
-    Q8_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q8_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q8_QV = models.IntegerField(initial=0, min=0, max=10)
     Q8_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #9
-    Q9_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q9_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q9_QV = models.IntegerField(initial=0, min=0, max=10)
     Q9_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #10
-    Q10_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q10_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q10_QV = models.IntegerField(initial=0, min=0, max=10)
     Q10_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #11
-    Q11_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q11_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q11_QV = models.IntegerField(initial=0, min=0, max=10)
     Q11_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #12
-    Q12_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q12_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q12_QV = models.IntegerField(initial=0, min=0, max=10)
     Q12_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #13
-    Q13_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q13_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q13_QV = models.IntegerField(initial=0, min=0, max=10)
     Q13_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #14
-    Q14_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q14_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q14_QV = models.IntegerField(initial=0, min=0, max=10)
     Q14_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #15
-    Q15_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q15_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q15_QV = models.IntegerField(initial=0, min=0, max=10)
     Q15_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #16
-    Q16_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q16_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q16_QV = models.IntegerField(initial=0, min=0, max=10)
     Q16_QV_costs = models.IntegerField(initial=0, min=0, max=100)
     #17
-    Q17_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], initial="neutral", widget=widgets.RadioSelectHorizontal)
+    Q17_MV = models.StringField(label="", choices=["Yes", "neutral", "no"], widget=widgets.RadioSelectHorizontal)
     Q17_QV = models.IntegerField(initial=0, min=0, max=10)
     Q17_QV_costs = models.IntegerField(initial=0, min=0, max=100)
 
