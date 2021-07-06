@@ -19,6 +19,10 @@ ROOMS = [
         display_name='first_room',
         #participant_label_file='_rooms/first_room.txt',
         #use_secure_urls=True
+    ),
+        dict(
+        name='second_room',
+        display_name='second_Room'
     )
 ]
 
