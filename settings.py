@@ -22,7 +22,11 @@ ROOMS = [
     ),
         dict(
         name='second_room',
-        display_name='second_Room'
+        display_name='second_room'
+    ),
+        dict(
+        name='third_room',
+        display_name='third_room'
     )
 ]
 
