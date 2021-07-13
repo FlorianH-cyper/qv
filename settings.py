@@ -6,6 +6,13 @@ SESSION_CONFIGS = [
          app_sequence=['QV_final_version'],
          num_demo_participants=1,
      ),
+          dict(
+         name='compare',
+         app_sequence=['compare'],
+         num_demo_participants=1,
+     ),
+
+
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -27,6 +34,10 @@ ROOMS = [
         dict(
         name='third_room',
         display_name='third_room'
+    ),
+        dict(
+        name='room_for_survey_2',
+        display_name='room_for_survey_2'
     )
 ]
 
