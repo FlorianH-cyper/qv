@@ -1,0 +1,87 @@
+{{ block title }}
+    Comparison
+{{ endblock }}
+{{ block content }}
+
+<div style="border: 1px solid black">
+Society X:
+<ul>
+  <li>Ban on inner country flights</li>
+  <li>Ban on weapon exports</li>
+  <li>Mandatory for secondary schools to provide an unisex toilet</li>
+</ul>
+</div>
+<p>
+
+</p>
+<div style="border: 1px solid black">
+Society Y:
+<ul>
+    <li><b>NO</b> ban on inner country flights</li>
+    <li><b>NO</b> ban on weapon exports</li>
+    <li><b>NOT</b> mandatory for secondary schools to provide a unisex toilet</li>
+</ul>
+</div>
+
+<br>
+
+<body>
+<p>
+    <b>I am satisfied with the three outcomes in Society ...</b>
+</p>
+<style>
+table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center
+}
+th, td {
+  padding: 5px;
+}
+</style>
+<table width= "100%" align="center">
+    <col style="width:10%" align="center">
+	<col style="width:90%">
+
+    <tr>
+        <td>
+            <b> X</b>
+        </td>
+        <td>{{ formfield player.QV_RULES_ENG }}</td>
+
+    </tr>
+    <tr>
+        <td>
+            <b> Y</b>
+        </td>
+        <td>{{ formfield player.MV_RULES_ENG }}</td>
+    </tr>
+
+</table>
+</body>
+
+<br>
+
+<style>
+table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center
+}
+th, td {
+  padding: 5px;
+}
+</style>
+<body>
+<p>
+    <b>Please indicate which society you prefer in comparison with the other:</b>
+</p>
+<table>
+    <td>{{ formfield player.Comparison_ENG }}</td>
+</table>
+</body>
+<p>
+
+</p>
+{{ next_button }}
+{{ endblock }}
