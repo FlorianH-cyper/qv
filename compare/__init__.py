@@ -26,10 +26,20 @@ class Player(BasePlayer):
     MV_RULES_ENG = models.StringField(label="", choices=["Strongly Agree", "Somewhat Agree", "Neutral", "Somewhat Disagree", "Strongly Disagree"], widget=widgets.RadioSelectHorizontal)
     QV_RULES_GER = models.StringField(label="", choices=["Trifft zu", "Trifft eher zu", "teils-teils", "Trifft eher nicht zu", "Trifft eher nicht zu"], widget=widgets.RadioSelectHorizontal)
     MV_RULES_GER = models.StringField(label="", choices=["Trifft zu", "Trifft eher zu", "teils-teils", "Trifft eher nicht zu", "Trifft eher nicht zu"], widget=widgets.RadioSelectHorizontal)
-    Comparison_GER = models.StringField(label="", choices=["Ich bevorzuge X stark", "Ich bevorzuge X leicht", "Beide gleich gut/schlecht", "Ich bevorzuge Y leicht", "Ich bevorzuge Y stark"], widget=widgets.RadioSelectHorizontal)
+    Comparison_GER = models.StringField(label="", choices=["Ich bevorzuge X stark", "Ich bevorzuge X leicht", "neutral", "Ich bevorzuge Y leicht", "Ich bevorzuge Y stark"], widget=widgets.RadioSelectHorizontal)
     Comparison_ENG = models.StringField(label="", choices=["I strongly prefer X", "I slightly prefer X",
                                                            "No difference", "I slightly prefer Y", "I strongly prefer Y"],widget=widgets.RadioSelectHorizontal)
 # PAGES
+
+class Intro_GER(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.language == "deutsch"
+
+class Intro_ENG(Page):
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.language == "english"
 
 
 class VOTE_GERMAN(Page):
@@ -71,4 +81,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [lang, VOTE_ENGLISH, VOTE_GERMAN]
+page_sequence = [lang, Intro_ENG, Intro_GER, VOTE_ENGLISH, VOTE_GERMAN, THANKS_ENGLISH, THANKS_GERMAN]

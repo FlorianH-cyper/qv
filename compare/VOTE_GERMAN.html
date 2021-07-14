@@ -1,9 +1,91 @@
 {{ block title }}
-    Page title
+    Vergleich
 {{ endblock }}
 {{ block content }}
+<p>Unten sehen Sie zwei verschiedene Gesellschaften, <em>X</em>  und <em>Y</em>, die sich nur in den folgenden drei Punkten unterscheiden:</p>
 
-    {{ formfields }}
-    {{ next_button }}
+<div style="border: 1px solid black">
+Gesellschaft <em>X</em>:
+<ul>
+  <li>Generelles Verbot von Inlandsflügen</li>
+  <li>Komplettes Verbot von Waffenexporten</li>
+  <li>Pflicht für jede weiterführende Schule, mindestens eine Unisex-Toilette bereitzustellen.</li>
+</ul>
+</div>
+<p>
 
+</p>
+<div style="border: 1px solid black">
+Gesellschaft <em>Y</em>:
+<ul>
+    <li><b>Kein</b> generelles Verbot von Inlandsflügen</li>
+    <li><b>Kein</b> Verbot von Waffenexporten</li>
+    <li><b>Keine</b> Pflicht für jede weiterführende Schule, mindestens eine Unisex-Toilette bereitzustellen.</li>
+</ul>
+</div>
+
+<br>
+<p>
+    Führen sie bitte auf Basis dieser 3 Punkte eine Bewertung durch:
+</p>
+<body>
+<p>
+    <b>Ich bin zufrieden mit den 3 Politik-Regeln in Gesellschaft ...</b>
+</p>
+<style>
+table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center
+}
+th, td {
+  padding: 5px;
+}
+</style>
+<table width= "100%" align="center">
+    <col style="width:10%" align="center">
+	<col style="width:90%">
+
+    <tr>
+        <td>
+            <b> <em>X</em></b>
+        </td>
+        <td>{{ formfield player.QV_RULES_GER }}</td>
+
+    </tr>
+    <tr>
+        <td>
+            <b> <em>Y</em></b>
+        </td>
+        <td>{{ formfield player.MV_RULES_GER }}</td>
+    </tr>
+
+</table>
+</body>
+
+<br>
+
+<style>
+table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center
+}
+th, td {
+  padding: 5px;
+}
+</style>
+<body>
+<p>
+    <b>Welche Gesellschaft präferieren Sie im Vergleich zu der anderen?</b>
+</p>
+<table width="100%">
+    <td width="100%">{{ formfield player.Comparison_GER }}</td>
+</table>
+</body>
+<p>
+
+</p>
+{{ next_button }}
 {{ endblock }}
+

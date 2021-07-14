@@ -2,12 +2,13 @@
     Comparison
 {{ endblock }}
 {{ block content }}
+<p>Below, you can see two societies, <em>X</em>  and <em>Y</em>, which differ only in the following three points:</p>
 
 <div style="border: 1px solid black">
-Society X:
+Society <em>X</em>:
 <ul>
   <li>Ban on inner country flights</li>
-  <li>Ban on weapon exports</li>
+  <li>Ban on arms exports</li>
   <li>Mandatory for secondary schools to provide an unisex toilet</li>
 </ul>
 </div>
@@ -15,19 +16,21 @@ Society X:
 
 </p>
 <div style="border: 1px solid black">
-Society Y:
+Society <em>Y</em>:
 <ul>
     <li><b>NO</b> ban on inner country flights</li>
-    <li><b>NO</b> ban on weapon exports</li>
-    <li><b>NOT</b> mandatory for secondary schools to provide a unisex toilet</li>
+    <li><b>NO</b> ban on arms exports</li>
+    <li><b>NOT</b> mandatory for secondary schools to provide an unisex toilet</li>
 </ul>
 </div>
 
 <br>
-
+<p>
+   Please evaluate the two societies on the basis of these three issues:
+</p>
 <body>
 <p>
-    <b>I am satisfied with the three outcomes in Society ...</b>
+    <b>I am satisfied with the three policy-rules in society ...</b>
 </p>
 <style>
 table, td {
@@ -45,14 +48,14 @@ th, td {
 
     <tr>
         <td>
-            <b> X</b>
+            <b> <em>X</em></b>
         </td>
         <td>{{ formfield player.QV_RULES_ENG }}</td>
 
     </tr>
     <tr>
         <td>
-            <b> Y</b>
+            <b> <em>Y</em></b>
         </td>
         <td>{{ formfield player.MV_RULES_ENG }}</td>
     </tr>
@@ -76,8 +79,8 @@ th, td {
 <p>
     <b>Please indicate which society you prefer in comparison with the other:</b>
 </p>
-<table>
-    <td>{{ formfield player.Comparison_ENG }}</td>
+<table width="100%">
+    <td width="100%">{{ formfield player.Comparison_ENG }}</td>
 </table>
 </body>
 <p>
