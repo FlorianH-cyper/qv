@@ -1,4 +1,12 @@
-# qv
-This is the code for an experiment on Quadratic Voting as a mechanism for collective decision makinf in political context.
-It compares quadratice voting to majority voting.
+# Quadratic Voting experiment
+
+Developed for my seminar paper at Heidelberg University.
+Teacher: Dr. Stefano Balietti
+Course: Blockchain Economics and Radical Markets
+Topic: Quadratic Voting 
+Project description: comparison of two different voting systems by conducting an online experiment.
+Studys: Master Economics
+
+FH
+
 
