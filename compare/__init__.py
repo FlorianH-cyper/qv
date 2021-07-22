@@ -1,5 +1,5 @@
 from otree.api import *
-
+import random
 
 doc = """
 Your app description
@@ -20,6 +20,8 @@ class Group(BaseGroup):
     pass
 
 
+
+
 class Player(BasePlayer):
     language = models.StringField(label="please choose your preferred language", choices=["english", "deutsch"], widget=widgets.RadioSelectHorizontal)
     QV_RULES_ENG = models.StringField(label="", choices=["Strongly Agree", "Somewhat Agree", "Neutral", "Somewhat Disagree", "Strongly Disagree"], widget=widgets.RadioSelectHorizontal)
@@ -29,12 +31,25 @@ class Player(BasePlayer):
     Comparison_GER = models.StringField(label="", choices=["Ich bevorzuge X stark", "Ich bevorzuge X leicht", "neutral", "Ich bevorzuge Y leicht", "Ich bevorzuge Y stark"], widget=widgets.RadioSelectHorizontal)
     Comparison_ENG = models.StringField(label="", choices=["I strongly prefer X", "I slightly prefer X",
                                                            "No difference", "I slightly prefer Y", "I strongly prefer Y"],widget=widgets.RadioSelectHorizontal)
+    p = models.IntegerField()
+
+#Functions
+
+
+#assign random number to player to determine if X or Y is shown first - prevention of bias
+def creating_session(subsession):
+    # randomize to treatments
+    for player in subsession.get_players():
+        player.p = random.choice([1, 2])
+
+
 # PAGES
 
 class Intro_GER(Page):
     @staticmethod
     def is_displayed(player: Player):
         return player.language == "deutsch"
+
 
 class Intro_ENG(Page):
     @staticmethod
@@ -75,6 +90,7 @@ class ResultsWaitPage(WaitPage):
 class lang(Page):
     form_model = "player"
     form_fields = ["language"]
+
 
 
 class Results(Page):

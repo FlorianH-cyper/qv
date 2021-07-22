@@ -2,6 +2,9 @@
     Comparison
 {{ endblock }}
 {{ block content }}
+
+{{if player.p == 1}}
+
 <p>Below, you can see two societies, <em>X</em>  and <em>Y</em>, which differ only in the following three points:</p>
 
 <div style="border: 1px solid black">
@@ -62,6 +65,73 @@ th, td {
 
 </table>
 </body>
+
+{{else}}
+
+
+<p>Below, you can see two societies, <em>Y</em>  and <em>X</em>, which differ only in the following three points:</p>
+
+
+<div style="border: 1px solid black">
+Society <em>Y</em>:
+<ul>
+    <li><b>NO</b> ban on inner country flights</li>
+    <li><b>NO</b> ban on arms exports</li>
+    <li><b>NOT</b> mandatory for secondary schools to provide an unisex toilet</li>
+</ul>
+</div>
+<div style="border: 1px solid black">
+Society <em>X</em>:
+<ul>
+  <li>Ban on inner country flights</li>
+  <li>Ban on arms exports</li>
+  <li>Mandatory for secondary schools to provide an unisex toilet</li>
+</ul>
+</div>
+<p>
+
+</p>
+
+<br>
+<p>
+   Please evaluate the two societies on the basis of these three issues:
+</p>
+<body>
+<p>
+    <b>I am satisfied with the three policy-rules in society ...</b>
+</p>
+<style>
+table, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center
+}
+th, td {
+  padding: 5px;
+}
+</style>
+<table width= "100%" align="center">
+    <col style="width:10%" align="center">
+	<col style="width:90%">
+
+    <tr>
+        <td>
+            <b> <em>Y</em></b>
+        </td>
+        <td>{{ formfield player.MV_RULES_ENG }}</td>
+
+    </tr>
+    <tr>
+        <td>
+            <b> <em>X</em></b>
+        </td>
+        <td>{{ formfield player.QV_RULES_ENG }}</td>
+    </tr>
+
+</table>
+</body>
+
+    {{endif}}
 
 <br>
 
